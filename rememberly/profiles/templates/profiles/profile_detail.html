@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div id="profile_blurb" class="page-header">
+	<div class="row">
+		<span class="span1">
+			<img src="https://graph.facebook.com/{{ profile.facebook_id}}/picture"/>
+		</span>
+		<span class="span6">
+			<h1>
+		        {{ profile.user.first_name}} {{ profile.user.last_name }}
+		    </h1>
+		</span>	
+	</div>
+</div>
+
+<div id="feed_nav" class="row">
+	<div class="span10">
+		<ul class="pills" data-tabs="pills">
+			<li class="active"><a href="#recent">Recently Answered</a></li>
+		  	<li><a href="#open">Recently Asked</a></li>		
+		</ul>    
+	</div>   
+</div>
+
+<div id="user_feed" class="row feed">
+	<span class="span14">
+		<div class="pill-content">
+			<div id="recent" class="active">
+				{% if answers.count > 0 %}
+					<ul class="unstyled">
+					{% for item in answers %}
+						{% include 'moments/feed/_answer.html' %}
+					{% endfor %}
+					</ul>
+				{% else %}
+					<p>No activity yet</p>
+				{% endif %}
+			</div>
+		  
+			<div id="open">
+				{% if questions.count > 0 %}
+					<ul class="unstyled">
+					{% for item in questions %}
+						{% include 'moments/feed/_question.html' %}
+					{% endfor %}
+					</ul>
+				{% else %}
+					<p>No activity yet</p>
+				{% endif %}
+			</div>
+		</div>	
+	</span>
+</div>
+
+
+{% endblock %}

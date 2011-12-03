@@ -1,0 +1,7 @@
+{% load profile_tags %}
+
+<div class="person">
+    <a href="{% url profile_detail user.username %}">
+        <span class="username">{{ user.username|truncate:"12" }}</span>
+    </a>
+</div>

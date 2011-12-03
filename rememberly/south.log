@@ -1,0 +1,70 @@
+south execute "ALTER TABLE "moments_answerfriend" ADD COLUMN "fb_friend_id" integer NOT NULL DEFAULT 28111587;" with params "[]"
+south execute "ALTER TABLE "moments_answerfriend" ALTER COLUMN "fb_friend_id" TYPE integer, ALTER COLUMN "fb_friend_id" SET NOT NULL, ALTER COLUMN "fb_friend_id" DROP DEFAULT;" with params "[]"
+south execute "ALTER TABLE "moments_answerfriend" ADD CONSTRAINT "fb_friend_id_refs_id_94d0f6f5014fdc5" FOREIGN KEY ("fb_friend_id") REFERENCES "django_facebook_facebookuser" ("id") DEFERRABLE INITIALLY DEFERRED;" with params "[]"
+south execute "ALTER TABLE "moments_answerfriend" ADD COLUMN "fb_friend_id" integer NOT NULL DEFAULT 28111587;" with params "[]"
+south execute "ALTER TABLE "moments_answerfriend" ALTER COLUMN "fb_friend_id" TYPE integer, ALTER COLUMN "fb_friend_id" SET NOT NULL, ALTER COLUMN "fb_friend_id" DROP DEFAULT;" with params "[]"
+south execute "ALTER TABLE "moments_answerfriend" ADD CONSTRAINT "fb_friend_id_refs_id_94d0f6f5014fdc5" FOREIGN KEY ("fb_friend_id") REFERENCES "django_facebook_facebookuser" ("id") DEFERRABLE INITIALLY DEFERRED;" with params "[]"
+south execute "ALTER TABLE "moments_answerfriend" ADD COLUMN "fb_friend_id" integer NOT NULL DEFAULT 0;" with params "[]"
+south execute "ALTER TABLE "moments_answerfriend" ALTER COLUMN "fb_friend_id" TYPE integer, ALTER COLUMN "fb_friend_id" SET NOT NULL, ALTER COLUMN "fb_friend_id" DROP DEFAULT;" with params "[]"
+south execute "ALTER TABLE "moments_answerfriend" ADD CONSTRAINT "fb_friend_id_refs_id_94d0f6f5014fdc5" FOREIGN KEY ("fb_friend_id") REFERENCES "django_facebook_facebookuser" ("id") DEFERRABLE INITIALLY DEFERRED;" with params "[]"
+south execute "ALTER TABLE "moments_answerfriend" ADD COLUMN "fb_friend_id" integer NOT NULL DEFAULT 1;" with params "[]"
+south execute "ALTER TABLE "moments_answerfriend" ALTER COLUMN "fb_friend_id" TYPE integer, ALTER COLUMN "fb_friend_id" SET NOT NULL, ALTER COLUMN "fb_friend_id" DROP DEFAULT;" with params "[]"
+south execute "ALTER TABLE "moments_answerfriend" ADD CONSTRAINT "fb_friend_id_refs_id_94d0f6f5014fdc5" FOREIGN KEY ("fb_friend_id") REFERENCES "django_facebook_facebookuser" ("id") DEFERRABLE INITIALLY DEFERRED;" with params "[]"
+south execute "CREATE INDEX "moments_answerfriend_fb_friend_id" ON "moments_answerfriend" ("fb_friend_id");" with params "[]"
+south execute "ALTER TABLE "moments_answerfriend" DROP COLUMN "fb_friend_id" CASCADE;" with params "[]"
+south execute "ALTER TABLE "moments_answerfriend" ADD COLUMN "facebook_id" bigint NOT NULL DEFAULT 0;" with params "[]"
+south execute "ALTER TABLE "moments_answerfriend" ALTER COLUMN "facebook_id" TYPE bigint, ALTER COLUMN "facebook_id" SET NOT NULL, ALTER COLUMN "facebook_id" DROP DEFAULT;" with params "[]"
+south execute "
+            SELECT kc.constraint_name, kc.column_name
+            FROM information_schema.constraint_column_usage AS kc
+            JOIN information_schema.table_constraints AS c ON
+                kc.table_schema = c.table_schema AND
+                kc.table_name = c.table_name AND
+                kc.constraint_name = c.constraint_name
+            WHERE
+                kc.table_schema = %s AND
+                kc.table_name = %s AND
+                c.constraint_type = %s
+        " with params "['public', 'moments_answerfriend', 'CHECK']"
+south execute "
+            SELECT kc.constraint_name, kc.column_name
+            FROM information_schema.key_column_usage AS kc
+            JOIN information_schema.table_constraints AS c ON
+                kc.table_schema = c.table_schema AND
+                kc.table_name = c.table_name AND
+                kc.constraint_name = c.constraint_name
+            WHERE
+                kc.table_schema = %s AND
+                kc.table_name = %s AND
+                c.constraint_type = %s
+        " with params "['public', 'moments_answerfriend', 'FOREIGN KEY']"
+south execute "ALTER TABLE "moments_answerfriend" ALTER COLUMN "facebook_id" TYPE bigint, ALTER COLUMN "facebook_id" DROP NOT NULL, ALTER COLUMN "facebook_id" DROP DEFAULT;" with params "[]"
+south execute "
+            SELECT kc.constraint_name, kc.column_name
+            FROM information_schema.constraint_column_usage AS kc
+            JOIN information_schema.table_constraints AS c ON
+                kc.table_schema = c.table_schema AND
+                kc.table_name = c.table_name AND
+                kc.constraint_name = c.constraint_name
+            WHERE
+                kc.table_schema = %s AND
+                kc.table_name = %s AND
+                c.constraint_type = %s
+        " with params "['public', 'moments_answerfriend', 'CHECK']"
+south execute "
+            SELECT kc.constraint_name, kc.column_name
+            FROM information_schema.key_column_usage AS kc
+            JOIN information_schema.table_constraints AS c ON
+                kc.table_schema = c.table_schema AND
+                kc.table_name = c.table_name AND
+                kc.constraint_name = c.constraint_name
+            WHERE
+                kc.table_schema = %s AND
+                kc.table_name = %s AND
+                c.constraint_type = %s
+        " with params "['public', 'moments_answerfriend', 'FOREIGN KEY']"
+south execute "ALTER TABLE "moments_answerfriend" DROP CONSTRAINT "friend_id_refs_id_3ed83501228ffc74"" with params "[]"
+south execute "ALTER TABLE "moments_answerfriend" ALTER COLUMN "friend_id" TYPE integer, ALTER COLUMN "friend_id" DROP NOT NULL, ALTER COLUMN "friend_id" DROP DEFAULT;" with params "[]"
+south execute "ALTER TABLE "moments_answerfriend" ADD CONSTRAINT "friend_id_refs_id_3ed83501228ffc74" FOREIGN KEY ("friend_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED;" with params "[]"
+south execute "ALTER TABLE "moments_question" ADD COLUMN "answer_count" integer CHECK ("answer_count" >= 0) NOT NULL DEFAULT 0;" with params "[]"
+south execute "ALTER TABLE "moments_question" ALTER COLUMN "answer_count" TYPE integer, ALTER COLUMN "answer_count" SET NOT NULL, ALTER COLUMN "answer_count" DROP DEFAULT;" with params "[]"

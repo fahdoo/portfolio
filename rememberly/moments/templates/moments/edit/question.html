@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="question page-header">
+	<div class="question-info">
+		<h2>
+			Current: <a class="question-title" href="{{ question.get_absolute_url }}">{{ question.title}}</a>
+		</h2>
+	</div>
+</div>
+
+<div id="question-edit" class="ask row">
+		<div class="span14">
+			<form method="post" action="." class="form-stacked">
+				{% csrf_token %}
+				{% if qform.title.errors %}
+					<div class="alert-message error">{{ qform.title.errors }}</div>
+				{% endif %}
+				<label for="id_title" >Edit the question title</label>
+				<div class="clearfix">
+					{{ qform.title}}
+				</div>
+				<label for="id_title" >Edit the description</label>
+				<div class="clearfix">
+					{{ qform.description}}
+				</div>
+				<div class="clearfix">
+					<input type="submit" value="Update" name="update"  class="btn primary"/>
+					<input type="button" value="Cancel" name="cancel" class="btn" onclick="window.location = '{{ question.get_absolute_url }}' " />
+				</div>
+			</form>
+		</div>
+	</div>
+
+{% endblock %}

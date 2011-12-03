@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" class="whitey">
+  <head>
+    <meta charset="utf-8">
+    <title>Rememberly {% block title %}{% endblock %}</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+	<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+	<link href="{{STATIC_URL}}libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+	<link href="{{STATIC_URL}}css/base.css" rel="stylesheet">
+	<link href="{{STATIC_URL}}css/textures.css" rel="stylesheet">
+
+    <!-- Le fav and touch icons -->
+<!--
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+-->
+  </head>
+
+  <body>
+
+    <div class="topbar">
+      <div class="refill translucent">
+        <div class="container">
+          <a class="brand" href="/">Rememberly</a>
+          <ul class="nav">
+          </ul>
+          <div class="pull-right">
+          	<ul class="nav secondary-nav">
+          	    {% if user.is_authenticated %}
+          	    	<li><a href="{% url moments_index %}">Moments</a></li>
+	          	    <li>
+		              <a href="{% url profile_detail user.username %}">
+		              	{{ user.first_name }} {{ user.last_name }}
+		              </a>
+		            </li>
+		            <li>
+		                <a href="{% url auth_logout %}">Logout</a>
+		            </li>
+	   			{% endif %}          		
+          	</ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div id="content" class="content">
+   	  	{% block content %}{% endblock %}
+      </div>
+
+      <footer>
+      	<p>
+      		Rememberly is currently under active development.
+      	</p>
+      	<p>
+	      	If you find any bugs or have general feedback, email us at <a href="mailto:feedback@rememberly.com?Subject=Feedback">feedback@rememberly.com</a>.
+      	</p>
+      	 
+      </footer>
+
+    </div> <!-- /container -->
+
+	<!-- JAVASCRIPT -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+	<script src="{{STATIC_URL}}libs/bootstrap/js/bootstrap-dropdown.js" type="text/javascript"></script>
+	<script src="{{STATIC_URL}}libs/bootstrap/js/bootstrap-tabs.js" type="text/javascript"></script>	
+	<script src="{{STATIC_URL}}js/base.js" type="text/javascript"></script>	
+	
+	<script src="{{ STATIC_URL }}js/facebook.js" type="text/javascript"></script>
+
+	{% include "facebook-load.html" %}
+	
+  </body>
+</html>

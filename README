@@ -1,0 +1,37 @@
+Code Portfolio
+==============
+
+This is a collection of snippets of codes (and in some cases the entire project). Some of these are incomplete side projects, complete side projects, the startup I cofounded and the startup I worked at.
+
+In order of most recently worked upon:
+
+CodeSprint
+------
+
+HTML/CSS on the Twitter Bootstrap framework for the upcoming CodeSprint challenge.
+
+Rememberly
+------
+
+Built this website from the ground up by myself on Django/Heroku in about 2 weeks: http://alpha.rememberly.com/moments
+
+Nowmov
+------
+
+I can't show the whole code for obvious reasons but this was the beginning of the Interface object that controlled all the UI elements. The Interface.Ranger was fun to create as it would let users select a range of a YouTube or Vimeo video that they wanted to share instead of the whole clip. Interface.Mentions would asynchronously fetch Twitter and Facebook share data from our backend, but then would have to ping Twitter and Facebook for additional information since we were only storing the ID and text of the share/retweet. This file eventually got too big to be maintainable and I started breaking it down into more modular objects, such as one for Channels, but never had time for a complete transition. Also read up on Backbone.js and it seemed like a promising framework to write maintainable JS. I wrote a lot of JavaScript and CSS here - our website was a single page after all!
+
+
+Fashionista/LittleWeb
+------
+
+These two projects were incomplete (yet ugly working prototypes) and were explorations of ideas in fashion and the family space. It was also my first time using Django and my first two attempts at trying to pick it up (which I feel like I have now after Rememberly).
+
+
+Thinkpanda
+------
+
+I wrote 90% of the JS/jQuery, CSS, view templates (the .ctp files) and about 50% of the controller/model (we used CakePHP). Thinkpanda was a pretty huge application as it was a collaboration dashboard with several "apps" that users could install. It was also for the most part a single page Ajax application (ala Google Wave and Asana). This is just a slice of the code - and its a bit messy. We were moving from an existing spaghetti-code php prototype to CakePHP and our product direction and target market kept switching. Nevertheless, there were lots of interesting challenge in creating a single-page Ajax dashboard that had feeds, notifications, filters, apps and a contextual interface (based on what project and app you have selected, your workspace would show different data). This made for some interestingly complex MySQL queries and mid-way through the project we started denormalizing our data so we would minimize the number of joins (we had a query with about 7+ joins that we reduced to 1). The JS was equally challenging and I tried my best to keep it maintainable and structured given the speed with which we were iterating our product.
+
+Echopad
+-------
+A university design project that I completely built by myself. It was my first foray into the world of Ajax and JavaScript (with the YUI framework).

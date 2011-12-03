@@ -1,0 +1,30 @@
+{% load comments %}
+{% if user.is_authenticated %}
+   <form action="{% comment_form_target %}" method="post">
+        {% csrf_token %}
+        {% if next %}<input name="next" type="hidden" value="{{ next }}" />{% endif %}
+        {% for field in form %}
+            {% if field.is_hidden %}
+                {{ field }}
+            {% else %}
+            	{% if field.name == "comment" %}
+            		<div class="clearfix">
+    					<textarea id="id_comment" rows="3" class="span8 offset1" name="comment" placeholder="Comment…"></textarea>		
+            		</div>
+            	{% else %}
+            		{% if field.name == "honeypot" %}
+            		<div class="hidden">
+		                {{ field }}
+	        		</div>
+	        		{% endif %}
+            	{% endif %}
+            {% endif %}
+        {% endfor %}
+        <div class="clearfix">
+	         <input class="submit-post btn primary" name="post" type="submit" value="Add Comment" />
+        </div>
+        <input type="hidden" name="next" value="{{ answer.get_absolute_url }}" />
+   </form>
+{% else %}
+
+{% endif %}

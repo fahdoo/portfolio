@@ -1,0 +1,18 @@
+<div class="row">
+	<div class="span8 offset1">
+		<ul id="comments" name="comments" class="comments unstyled">
+		{% for comment in comment_list %}
+		    <li class="comment">
+		      <div class="comment-info">
+		      	<a class="item-name" href="{% url profile_detail comment.user.username %}">{{ comment.user.first_name }} {{ comment.user.last_name }}</a> <span class="bullet">&bull;</span> <span class="time-ago"> {{ comment.submit_date|timesince }} ago </span>
+		      	{% if user == comment.user %}
+			      	<span class="bullet">&bull;</span>
+  					<a class="delete" href="{% url delete_own_comment answer.id comment.id %}">Delete</a> 
+				{% endif %}
+		      </div>
+			  <div class="comment-text">{{ comment.comment|linebreaks }}</div>
+		    </li>
+		{% endfor %}
+		</ul>
+	</div>
+</div>

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block main_content %}	
+	<div class="friends">	
+		{% if friends_list %}
+		    <ul>
+		    {% for friend in friends_list %}
+		        <li><a href="/friends/{{ friend.id }}/">{{ friend.first_name }} { friend.last_name }}</a></li>
+		    {% endfor %}
+		    </ul>
+		{% else %}
+		    <p>You have no friends :(</p>
+		{% endif %}	
+	</div>
+{% endblock %}

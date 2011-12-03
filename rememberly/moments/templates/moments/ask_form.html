@@ -1,0 +1,11 @@
+<div class="alert-message block-message info">
+	<form method="post" action="{% url moments_ask %}" class="form-stacked">
+		{% csrf_token %}
+		{% if qform.title.errors %}
+			<div class="alert-message error">{{ qform.title.errors }}</div>
+		{% endif %}
+		<label for="id_title" ><span class="circle">1</span> Start by asking about a moment or event in question form <span class="circle">2</span>  Answer it with your story <span class="circle">3</span>  Read other peoples responses</label>
+		{{ qform.title}}
+		<input type="submit" value="Ask" name=ask""  class="btn primary"/>
+	</form>
+</div>

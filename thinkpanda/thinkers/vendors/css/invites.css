@@ -1,0 +1,5 @@
+/*invite tabs*/
+#invite-tabs li {list-style:none outside none; display:inline; margin:0; vertical-align:baseline; padding:4px;}
+#invite-tabs li a {padding: 5px 10px;margin-left: 10px;vertical-align: baseline;-moz-border-radius: 5px;-webkit-border-radius: 5px;color: #57769b;text-decoration: none;display:block;float:left;}
+#invite-tabs li a:hover {background: #cfd5e3;text-decoration: none;}
+#invite-tabs li a.active {color: #fff; background: #454545;text-decoration: none;}

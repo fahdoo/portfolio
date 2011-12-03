@@ -1,0 +1,4 @@
+/* ADD */
+#river_workspace #formAddUser .input{display:inline;}
+#river_workspace #formAddUser input[type="submit"], #river_workspace #formAddUser input[type="button"] {float:none;}
+#river_workspace #formAddUser .submit {display:inline; padding:10px; width:auto;}

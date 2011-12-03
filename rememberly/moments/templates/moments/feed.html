@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div id="intro_blurb">
+    <p>Rememberly is a place to <strong>share the memorable stories of your life</strong> with the world</p>
+</div>
+<div id="moments_ask" class="ask">
+    {% if user.is_authenticated %}
+		{% include "moments/ask_form.html" %}
+    {% else %}
+        <div class="alert-message block-message warning">
+           <a href="{% url auth_login %}">Login</a> to ask questions
+        </div>
+    {% endif %}
+</div>
+
+<!--
+<div id="feed_nav" class="row">
+	<div class="span10">
+		<ul class="pills" data-tabs="pills">
+			<li class="active"><a href="#feed">Feed</a></li>
+		  	<li><a href="#recent">Recent</a></li>		
+		  	<li><a href="#open">Open</a></li>		
+		</ul>       
+	</div>
+</div>
+-->
+<div id="moment_feed" class="row feed">
+	<div class="span14">
+		<div class="">
+			<div id="feed" class="active">
+				{% if items.count > 0 %}
+				  <ul class="unstyled">
+				  {% for item in items %}
+				  	
+				  	{% if item.text %}
+				  		{% include "moments/feed/_answer.html" %}
+			  		{% endif %}
+			  		
+				  	{% if item.title %}
+				  		{% include "moments/feed/_question.html" %}
+				  	{% endif %}
+				  	
+				  {% endfor %}
+				  </ul>
+				{% else %}
+					<p>No activity yet</p>
+				{% endif %}
+			</div>		
+	 	</div>	
+	</div>
+</div>
+
+{% endblock %}

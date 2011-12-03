@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>{% block title %}Little Stories{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" media="all" href="{{ MEDIA_URL }}css/reset.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="{{ MEDIA_URL }}css/text.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="{{ MEDIA_URL }}css/960.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="{{ MEDIA_URL }}css/global.css" />
+    <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+	{% block extra_head %}{% endblock %}
+</head>
+<body>
+	 <div class="container_12">
+        <div id="nav_bg">
+            <div class="grid_4"><p id="logo"><a href="{% url stories-index %}">Little Web</a></p></div>
+            <div class="grid_8">
+                <ul id="nav">
+                    {% if user.is_authenticated %}                    
+                    	<li><a href="{% url profiles_profile_detail user.username %}">Profile</a></li>
+                    	<li><a href="{% url stories-index %}">Stories</a></li>
+                    	<li><a href="{% url children-index %}">Children</a></li>
+                    	<li><a href="{% url profiles_profile_list %}">People</a></li>
+                        <li><a href="{% url auth_password_change %}">Settings</a></li>
+                        <li><a href="{% url auth_logout %}">Logout</a></li>
+                    {% else %}
+                        <li><a href="{% url registration_register %}">Signup</a></li>
+                        <li><a href="{% url auth_login %}">Login</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+	    {% block messages %}
+	        {% if messages %}
+	            <ul class="messages grid_12">
+	                {% for message in messages %}
+	                <li><span>{{ message }}</span></li>
+	                {% endfor %}
+	            </ul>
+	        {% endif %}
+	    {% endblock %}
+        <div id="content" class="grid_12">
+            {% block main_content %}{% endblock %}
+        </div>
+        <div class="clear"></div>
+    </div>
+    <ul id="footer">
+        <li><a href="{% url about %}">About</a></li>
+        <li><span>&copy; Leetle Inc</span></li>
+    </ul>
+	{% block extra_body %}{% endblock %}
+</body>
+</html>

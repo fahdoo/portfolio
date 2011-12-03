@@ -1,0 +1,21 @@
+<li id="answer_{{ answer.id }}" class="answer row">
+	<div class="span1">
+		<a class="answer-image" href="{% url profile_detail user.username %}">
+			<img src="https://graph.facebook.com/{{ user.userprofile.facebook_id}}/picture"/>
+		</a>			
+	</div>
+	<div class="span8">
+			<p class="answer-metadata">
+			<a class="answer-profile" href="{% url profile_detail answer.user.username %}">{{answer.user.first_name}} {{answer.user.last_name}}</a> answered on <a class="answer-date" href="{{ answer.get_absolute_url }}">{{answer.created|date}}</a>
+		{% if answer.user == user %}
+			<span class="bullet">&bull;</span>
+			<a class="edit-link" href="{% url moments_edit_answer answer.id %}">Edit</a>
+			{% if not answer.deleted %}
+				<span class="bullet">&bull;</span>
+				<a class="delete-link" href="{% url moments_delete_answer answer.id %}">Hide</a>
+			{% endif %}
+		{% endif %}
+		</p>
+		<div class="answer-text row"><span class="span8">{{ answer.text|removetags:"script"|safe|urlizetrunc:30}}</span></div>
+	</div>
+</li>

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load comments %}
+<div id="answer-page">
+	
+	<div class="question page-header">
+		<div class="question-info">
+			<h2>
+				<a class="question-title" href="{{ question.get_absolute_url }}">{{ question.title}}</a>
+			</h2>
+		</div>
+	</div>
+	
+	<ul class="answers unstyled">
+		{% include 'moments/answer/_answer.html' %}
+	</ul>
+	<div class="answer-comments">
+		{% render_comment_list for answer %}
+	</div>
+	<div class="comment-form row">
+		<div class="offset1 span14">
+			{% render_comment_form for answer %}
+		</div>
+	</div>
+		
+	{% for fb_friend in fb_friends %}
+		<div class="fb_friend">
+		    <p>
+		    	<img src="https://graph.facebook.com/{{fb_friend.facebook_id}}/picture"/>
+		        <span>{{fb_friend.name}}</span>
+	        	<form method="post" action="{% url moments_tag_friend answer.id %}" class="form-stacked">
+					{% csrf_token %}
+				    <input type="hidden" name="answer_id" id="id_answer" value="{{answer.id}}" />
+				    <input type="hidden" name="facebook_id" id="id_facebook" value="{{fb_friend.facebook_id}}" />
+				    <input type="submit" value="Tag" name="tag_friend" class="btn"/>
+				</form>
+		    </p>	
+		</div>
+	{% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="question page-header">
+	<div class="question-info">
+		<h2>{{question.title}}</h2>
+		<div class="question-description">
+			{% if  question.description %}
+				<p>{{question.description}}</p>
+			{% endif %}	
+		</div>	
+		<div class="question-details">
+		    Asked by <a href="{% url profile_detail question.user.username %}">{{question.user.first_name}} {{question.user.last_name}}</a>
+		    on <a href="{{ question.get_absolute_url }}">{{question.created|date}}</a>
+			{% if question.user = user %}
+				<span class="bullet">&bull;</span>
+				<a class="edit-link" href="{% url moments_edit_question question.id %}">Edit</a>
+				<span class="bullet">&bull;</span>
+				<a class="delete-link" href="{% url moments_delete_question question.id %}">Hide</a>
+			{% endif %}		    
+		</div>
+	</div>
+
+	<div id="question-respond" class="respond row">
+		<div class="span1">
+  			<a class="respond-image" href="{% url profile_detail user.username %}">
+  				<img src="https://graph.facebook.com/{{ user.userprofile.facebook_id}}/picture"/>
+  			</a>			
+		</div>
+		<div class="span8">
+			<form method="post" action="{% url moments_respond question.id %}" class="form-stacked">
+				{% csrf_token %}
+				{{ aform.title.errors }}
+				<div class="clearfix">
+					{{ aform.text}}
+				</div>
+				<div class="clearfix">
+				    <input type="submit" value="Answer" name="ask" class="btn primary"/>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+
+<ul class="answers unstyled">
+{% if answers.count > 0 %}
+	{% for answer in answers %}
+		{% include 'moments/question/_answer.html' %}
+	{% endfor %}
+{% else %}
+	{{ user.first_name }}, be the first to share your story about this moment!
+{% endif %}
+</ul>
+
+{% endblock %}

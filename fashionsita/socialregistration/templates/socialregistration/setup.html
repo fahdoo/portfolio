@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% load socialregistration_tags %}
+
+{% block title %}Account Setup{% endblock %}
+
+{% block main_content %}
+	<h1>Setup</h1>
+	
+	{% if error %}
+		<p>Your session timed out. Please try again.</p>
+	{% else %}
+		<form method="POST" action=".">
+			{% csrf_token %}
+			{{form.as_ul}}
+			<br/>
+	        <input type="hidden" name="next" value="{% if next %}{{ next }}{% else %}{{ request.path }}{% endif %}" />				
+	        <input type="submit" value="Save"/>
+		</form>
+	{% endif %}
+{% endblock %}

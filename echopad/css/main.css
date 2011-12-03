@@ -1,0 +1,67 @@
+body, td, th {
+	background-color: #282828;
+	font-family: Lucida Grande,Helvetica, Verdana, Arial, sans-serif;
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;	
+	font-size: x-small;
+	color: #333333;
+}
+
+.clearfix{
+	clear: both;
+}
+			#canvas{
+	height: 100%;
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+}
+
+/* Resize Panel CSS */
+			.resizepanel .resizehandle { position:absolute; width:25px; height:4px; right:0; bottom:0; margin:0; padding:0; z-index:auto; background:#666;  cursor:se-resize; font-size:2px; }
+			#double { z-index: 0; font-weight: bold; bottom: 10px; position: absolute; width: 100%; color: #373737; text-align: center; font-size: 4em; font-family: Helvetica, Verdana, Arial, sans-serif; }
+			.innerDIV{
+				padding: 15px;
+			}
+			#echo_header { border-bottom-color: #4d4d4d; border-bottom-style: solid; border-bottom-width: .2px; z-index: 0; height: 105px; padding: 5px; margin-left: 0px; margin-bottom: 20px; margin-right: 0px; margin-top: 0px;  background-color: #181818; border-top-width: 10px; border-top-color: #3ca2ff; border-top-style: solid; top: 0px; display: block; }
+			#title_box{
+				z-index: 0;
+				height: 100%;
+				width: 20%;
+				display: inline;
+				float: left;
+			}
+			#username { z-index: 0; margin-top: 6px; font-size: 1.7em; color: #b3b3b3; display: block; }
+			#echopad {margin-top: 5px; margin-left: 20px; height: 77px; width: 280px; background-repeat: no-repeat; background-image: url(../assets/logos/echo_logo.png); font-size: 2.3em; }
+			#space{
+				height: 100%;
+				width: 40%;
+				display: inline;
+				float: left;
+			}
+			#taskbar_box{
+				z-index: 0;
+				width: 40%;
+				text-align: right;
+				height: 100%;
+				display:inline; float: left;
+			}
+			#login{
+				z-index: 0;
+				color: #b4e964;
+			}
+			#survey{
+				color: #ff7439;
+				z-index: 0;
+			}
+			.taskbar{
+				z-index: 0;
+				float: right;
+				padding-bottom: 10px; padding-top: 10px; margin-top: 15px; color: #737373; margin-left: 15px; font-weight: bold; font-size: 1.2em; text-align: center; display: block; background-color: #2e2e2e; cursor: hand; cursor:pointer
+			}
+			.icons { z-index: 0; padding-bottom: 10px; padding-top: 10px; padding:10px; margin-top: 15px; color: #737373; margin-left: 15px; font-weight: bold; font-size: 1.2em; text-align: center; float: left; display: block; background-color: #d4d4d4; cursor: hand; cursor:pointer }
+			#echo_icons { margin-top: 10px; height: 100%; width: 100%; }
+			.widgets { z-index: inherit; }
+			.inputbox{font-size: 1em;padding: 2px;border-color: #dbdbdb;border-style: solid;border-width: 2px;}

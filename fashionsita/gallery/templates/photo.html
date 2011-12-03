@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% load comments %}
+
+{% block main_content %}
+	{% if user.is_authenticated %}
+    {% endif %}	
+	<div class="photo">
+		<img class="photo" src="{{ photo.url }}"/>
+		<div class="photo-title">{{ photo.title }}</div>
+		<div class="photo-title">{{ photo.description }}</div>
+	</div>
+
+	{% render_comment_form for photo %}
+	{% render_comment_list for photo %}
+{% endblock %}

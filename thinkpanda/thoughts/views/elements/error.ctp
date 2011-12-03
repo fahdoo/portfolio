@@ -1,0 +1,1 @@
+<p class="fetchError"><?php echo $message; ?></p>

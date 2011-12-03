@@ -1,0 +1,262 @@
+.service{
+	display:block;
+	float: left;
+	width: 100%;
+}
+.hide{
+	margin: 2px;
+	height: 10px;
+	position: absolute;
+	right: 20px;
+	top: 3px;
+	background-repeat: no-repeat;
+	background-image: url(../assets/hide.png);
+	display: block;
+
+	width: 10px;
+	cursor:pointer;
+}
+.hide:hover{
+	background:url(../assets/hide_over.png) no-repeat;
+}
+.close {
+	margin: 2px;
+	height: 10px;
+	position: absolute;
+	right: 3px;
+	top: 3px;
+	background-position: right;
+	background-repeat: no-repeat;
+	background:url(../assets/close.png) no-repeat;
+	display: block;
+	width: 10px;
+	cursor:pointer;
+}
+
+.close:hover { 
+	background:url(../assets/close_over.png) no-repeat;
+}
+.yui-overlay {
+	position:absolute;
+	display:block;
+}
+
+.yui-tt {
+	visibility:hidden;
+	position:absolute;
+	color:#333;
+	background-color:#FDFFB4;
+	padding:2px;
+	font:100% sans-serif;
+	width:auto;
+}
+
+* html body.masked select {
+	visibility:hidden;
+}
+
+* html div.yui-panel-container select {
+	visibility:inherit;
+}
+
+* html div.drag select {
+	visibility:hidden;
+}
+
+* html div.hide-select select {
+	visibility:hidden;
+}
+
+.mask {
+    z-index:0;
+    display:none;
+    position:absolute;
+    top:0;
+    left:0;
+    -moz-opacity: 0.5;
+    opacity:.50;
+    filter: alpha(opacity=50);
+    background-color:#CCC;
+}
+
+.hide-scrollbars * {
+	overflow:hidden;
+}
+
+.hide-scrollbars textarea, .hide-scrollbars select {
+	overflow:hidden;
+	display:none;
+}
+
+.show-scrollbars textarea, .show-scrollbars select {
+	overflow:visible;
+}
+
+.yui-panel-container {
+	visibility:hidden;
+	position:absolute;
+	z-index:6;
+	overflow:visible;
+	width:auto;
+	border: 0px;
+    	background-color: #1a1a1a;
+
+}
+
+.yui-panel-container.focused {
+    	background-color:#474747;
+    	border: 0.2px solid #757575;
+}
+
+
+.yui-panel-container.matte {
+	padding:3px;
+	background-color:#FFF;
+}
+
+.yui-panel-container.matte .underlay {
+	display:none;
+}
+
+.yui-panel-container.shadow {
+	padding:0px;
+	background-color:transparent;
+}
+
+.yui-panel-container.shadow .underlay {
+	visibility:inherit;
+	position:absolute;
+	background-color:#000;
+	top:3px;left:3px;
+	z-index:0;
+	width:100%;
+	height:100%;
+    -moz-opacity: 0.12;
+    opacity:.12;
+    filter:alpha(opacity=12);
+	zoom:1;
+}
+
+.yui-panel {
+	visibility:visible;
+	border-collapse:separate;
+	position:relative;
+	left:0px;top:0px;
+	z-index:1;
+	overflow:hidden;
+	padding: 10px;
+	color:#FFFFFF;
+	border: 0px;
+
+
+}
+
+.yui-panel .hd {
+	color:#FFFFFF;
+	font-size:1.2em;
+	line-height:1.5em;
+	border-bottom:1px solid silver;
+	font-weight:bold;
+	overflow:hidden;
+	padding:4px;
+
+}
+
+.yui-panel .bd {
+	overflow:hidden;
+	padding:4px;
+	font-weight:normal;
+	font-size: 1em;
+	padding-top:8px;
+	padding-bottom:2px;
+	color: #aaaaaa;
+
+}
+
+.yui-panel .bd p {
+	margin:0 0 1em;
+}
+
+
+
+.yui-panel .ft {
+	padding:4px;
+	overflow:hidden;
+}
+
+.yui-simple-dialog .bd .yui-icon {
+	background-repeat:no-repeat;
+	width:16px;
+	height:16px;
+	margin-right:10px;
+	float:left;
+}
+
+.yui-simple-dialog .bd span.blckicon {
+	background: url("blck16_1.gif") no-repeat;
+}
+
+.yui-simple-dialog .bd span.alrticon {
+	background: url("alrt16_1.gif") no-repeat;
+}
+
+.yui-simple-dialog .bd span.hlpicon {
+	background: url("hlp16_1.gif") no-repeat;
+}
+
+.yui-simple-dialog .bd span.infoicon {
+	background: url("info16_1.gif") no-repeat;
+}
+
+.yui-simple-dialog .bd span.warnicon {
+	background: url("warn16_1.gif") no-repeat;
+}
+
+.yui-simple-dialog .bd span.tipicon {
+	background: url("tip16_1.gif") no-repeat;
+}
+
+.yui-dialog .ft, 
+.yui-simple-dialog .ft {
+	padding-bottom:5px;
+	padding-right:5px;
+	text-align:right;
+}
+
+.yui-dialog form, 
+.yui-simple-dialog form {
+	margin:0;
+}
+
+.button-group button {
+	font:100 76% verdana;
+	text-decoration:none;
+	background-color: #E4E4E4;
+	color: #333;
+	cursor: hand;
+	vertical-align: middle;
+	border: 2px solid #797979;
+	border-top-color:#FFF;
+	border-left-color:#FFF;
+	margin:2px;
+	padding:2px;
+}
+
+.button-group button.default {
+	font-weight:bold;
+}
+
+.button-group button:hover, 
+.button-group button.hover {
+	border:2px solid #90A029;
+	background-color:#EBF09E;
+	border-top-color:#FFF;
+	border-left-color:#FFF;
+}
+
+.button-group button:active {
+	border:2px solid #E4E4E4;
+	background-color:#BBB;
+	border-top-color:#333;
+	border-left-color:#333;
+}

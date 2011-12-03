@@ -1,0 +1,24 @@
+{% load comments %}
+{% get_comment_count for answer as comment_count %} 
+<li id="answer_{{ answer.id}}" name="answer_{{ answer.id}}" class="answer row">
+	<div class="span1">
+		<a class="answer-image" href="{% url profile_detail answer.user.username %}">
+			<img src="https://graph.facebook.com/{{ answer.user.userprofile.facebook_id}}/picture"/>
+		</a>			
+	</div>
+	<div class="span8">
+		<p class="answer-metadata">
+			<a class="answer-profile" href="{% url profile_detail answer.user.username %}">{{answer.user.first_name}} {{answer.user.last_name}}</a> answered on <a class="answer-date" href="{{ answer.get_absolute_url }}">{{answer.created|date}}</a>
+			{% if answer.user == user %}
+				<span class="bullet">&bull;</span>
+				<a class="edit-link" href="{% url moments_edit_answer answer.id %}">Edit</a>
+				<span class="bullet">&bull;</span>
+				<a class="delete-link" href="{% url moments_delete_answer answer.id %}">Hide</a>
+			{% endif %}
+		</p>
+	    <div class="answer-text">{{ answer.text|removetags:"script"|safe}}</div>
+	    <div class="answer-comments">
+	    	<a href="{{ answer.get_absolute_url }}#comments">{{ comment_count }} comments</a>
+	    </div>
+	</div>
+</li>		

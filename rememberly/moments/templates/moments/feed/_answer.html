@@ -1,0 +1,15 @@
+<li id="answer_{{ item.id}}" class="item-answer">
+	<div class="row">
+		<span class="span1">
+			<a class="item-image" href="{% url profile_detail item.user.username %}">
+  			<img src="https://graph.facebook.com/{{ item.user.userprofile.facebook_id}}/picture"/>
+			</a>
+		</span>
+		<span class="span13">
+			<p class="feed-heading">
+		  		<a class="item-name" href="{% url profile_detail item.user.username %}">{{ item.user.first_name }} {{ item.user.last_name }}</a> answered <a  class="question-title" href="{{ item.question.get_absolute_url }}#answer_{{ item.id}}">{{ item.question.title}}</a>
+		  	</p>
+		<div class="answer-text row"><span class="span8">{{ item.text|removetags:"script"|safe|urlizetrunc:30}}</span></div>
+		</span>	
+	</div>	  	
+</li>
